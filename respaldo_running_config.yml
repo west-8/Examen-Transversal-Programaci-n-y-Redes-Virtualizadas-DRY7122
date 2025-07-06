@@ -1,0 +1,17 @@
+---
+- name: Respaldo de la configuración del router
+  hosts: csr
+  gather_facts: no
+  connection: network_cli
+
+  tasks:
+    - name: Obtener running-config
+      ios_command:
+        commands:
+          - show running-config
+      register: running_config_output
+
+    - name: Guardar running-config en archivo
+      copy:
+        content: "{{ running_config_output.stdout[0] }}"
+        dest: "./running_config_backup.txt"
