@@ -1,5 +1,5 @@
 def mostrar_integrantes():
-    integrantes = ["Brian Arancibia"]
+    integrantes = ["Brian Arancibia Gabriel Ruminot"]
     print("Integrantes del grupo:")
     for persona in integrantes:
         print("-", persona)
